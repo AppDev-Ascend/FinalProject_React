@@ -1,9 +1,10 @@
-import React from 'react'
-
 const Header = () => {
   return (
     <div>
-        <h1>Our Header</h1>
+        <div class="">
+          <div>Assessify</div>
+          <div>Profile</div>
+        </div>
     </div>
   )
 }
