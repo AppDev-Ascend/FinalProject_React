@@ -5,7 +5,6 @@ import { useState } from "react"
 const modules = {
   "toolbar": [
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    [{font: []}],
     [{size: []}],
   ]
 }
