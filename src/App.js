@@ -5,24 +5,27 @@ import CreateAssessment from './pages/CreateAssessment';
 import Header from './components/Header';
 
 function App() {
-  const navigate = useNavigate();
-
-  const navigateToCreateAssessment = () => {
-    navigate('/create-assessment');
-  };
 
   return (
     <Router>
       <div>
         <Header />
-        <button onClick={navigateToCreateAssessment}>Create New Assessment</button>
-        <Routes> {/* Change Switch to Routes */}
-          <Route path="/create-assessment" element={<CreateAssessment />} /> {/* Change component to element */}
-          {/* Add more routes as needed */}
+        <NavigationButton />
+        <Routes>
+          <Route path="/create-assessment" element={<CreateAssessment />} />
         </Routes>
       </div>
     </Router>
   );
 }
 
+function NavigationButton() {
+  const navigate = useNavigate();
+
+  const navigateToCreateAssessment = () => {
+    navigate('/create-assessment');
+  };
+
+  return <button onClick={navigateToCreateAssessment}>Create New Assessment</button>;
+}
 export default App;

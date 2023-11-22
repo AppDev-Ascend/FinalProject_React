@@ -1,38 +1,38 @@
-import { useState } from 'react';
-import { marked } from 'marked';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { useState } from "react"
 
-const CustomMarkdownEditor = ({ value, onChange }) => {
-  const handleChange = (event) => {
-    onChange(event.target.value);
-  };
-
-  return (
-    <textarea
-      value={value}
-      onChange={handleChange}
-      style={{ width: '100%', height: '200px' }}
-    />
-  );
-};
+const modules = {
+  "toolbar": [
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+    [{font: []}],
+    [{size: []}],
+  ]
+}
 
 const TextEditor = () => {
 
-    const [markdown, setMarkdown] = useState(
-        `# Hello, world!
+  const [value, setValue] = useState("");
 
-        This is a Markdown-formatted text.
-    
-        * This is a list item.
-        * This is another list item.
-    
-        [This is a link](https://example.com).`
-    );
-    return (
-        <div>
-          <CustomMarkdownEditor value={markdown} onChange={setMarkdown} />
-          <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+  return (
+      <div className="relative h-screen w-full">
+        <div className="flex h-full">
+          <div className="relative w-1/2 flex justify-center items-center">
+            <ReactQuill
+              theme="snow"
+              className="h-full w-full"
+              placeholder="Write your lesson here..."
+              value={value}
+              onChange={setValue}
+              modules={modules}
+            />
+          </div>
+          <div className="relative w-1/2 flex justify-center items-center border-l border-black">
+            {value}
+          </div>
         </div>
-    );
+      </div>
+  );
 }
 
 export default TextEditor
