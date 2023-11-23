@@ -2,12 +2,12 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useState } from "react"
 
-const modules = {
-  "toolbar": [
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    [{size: []}],
-  ]
-}
+// const modules = {
+//   "toolbar": [
+//     [{ header: [1, 2, 3, 4, 5, 6, false] }],
+//     [{size: []}],
+//   ]
+// }
 
 const TextEditor = () => {
 
@@ -23,7 +23,7 @@ const TextEditor = () => {
               placeholder="Write your lesson here..."
               value={value}
               onChange={setValue}
-              modules={modules}
+              // modules={modules}
             />
           </div>
           <div className="relative w-1/2 flex justify-center items-center border-l border-black">

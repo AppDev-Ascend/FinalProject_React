@@ -10,6 +10,8 @@ axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 
+// HTML code for the login, registration, home, dashboard, navbar 
+
 const client = axios.create({
   baseUrl: "http://localhost:8000/api",
 })
@@ -21,31 +23,16 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  if (currentUser) {
-    return (
-      <Router>
-        <div>
-          <Header currentUser/>
-          <NavigationButton />
-          <Routes>
-            <Route path="/create-assessment" element={<CreateAssessment />} />
-          </Routes>
-        </div>
-      </Router>
-    );
-  } else {
-    return (
-      <Router>
-        <div>
-          <Header />
-          <NavigationButton />
-          <Routes>
-            <Route path="/create-assessment" element={<CreateAssessment />} />
-          </Routes>
-        </div>
-      </Router>
-    );
-  }
+  return (
+    <Router>
+      <div>
+        <NavigationButton />
+        <Routes>
+          <Route path="/create-assessment" element={<CreateAssessment />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 function NavigationButton() {

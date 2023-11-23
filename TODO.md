@@ -1,9 +1,9 @@
-# Project TODOs
+# React Final Project TODOs
 
 ## Tasks
-
+- [ ]
+- [X] Add Navigation Bar componenets when you are not logged in
 - [ ] Add Navigation Bar when you have are logged in
-- [ ] Add Navigation Bar componenets when you are not logged in
 
 ## Bugs
 
