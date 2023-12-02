@@ -39,7 +39,7 @@ export function Header(currentUser) {
         {/* <a href="#" className="flex items-center">
           Lesson
         </a> */}
-        Lesssons
+        Lessons
       </Typography>
     </ul>
   );
