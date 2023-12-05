@@ -1,14 +1,9 @@
 # React Final Project TODOs
 
 ## Tasks
-- [ ]
-- [X] Add Navigation Bar componenets when you are not logged in
-- [ ] Add Navigation Bar when you have are logged in
-
-## Bugs
-
-- [ ] Fix Navigation Bar Issues
-
-## Enhancements
-
-- [ ] Improve Navigation Bar
+- [ ] Add Routes and Finish Navigation
+- [ ] Add Headers when Logged in
+- [ ] Add Headers when not Logged in
+- [ ] Add Sign Up
+- [ ] Add Login
+- [ ] Add HomePage

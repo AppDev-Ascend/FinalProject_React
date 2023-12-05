@@ -1,30 +1,40 @@
-import { useEffect, useState } from "react";
-import './App.css';
+import '../App.css';
+import { Link } from 'react-router-dom';
+
+export function Header({ currentUser }) {
  
-export function Header(currentUser) {
-  const [openNav, setOpenNav] = useState(false);
- 
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
+  if(currentUser) {
+    return (
+      <div>
+        <nav className="nav-container">
+          <div className="navbar-div-left"> 
+            <a href="../index.html" className="web-logo"><div className="nav-element"><img src="/assets/images/BRAND_LOGO.png" height="40" alt="logo"/></div></a>
+            <a href="../index.html" className="nav-interactable"><div className="nav-element"> Pricing </div></a>
+            <a href="../index.html" className="nav-interactable"><div className="nav-element"> About Us </div></a>
+          </div>
+          <div className="navbar-div-right">
+            <a href="../index.html" className="nav-interactable"><div className="nav-element"> Sign Out </div></a>
+          </div>
+        </nav>
+      </div>
     );
-  }, []);
- 
-  return (
-    <div>
-      <nav class="nav-container">
-        <div class="navbar-div-left"> 
-          <a href="../index.html" class="web-logo"><div class="nav-element"><img src="../media/BRAND_LOGO.png" height="40" alt="logo"/></div></a>
-          <a href="../index.html" class="nav-interactable"><div class="nav-element"> Pricing </div></a>
-          <a href="../index.html" class="nav-interactable"><div class="nav-element"> About Us </div></a>
-        </div>
-        <div class="navbar-div-right">
-          <a href="../index.html" class="nav-interactable"><div class="nav-element"> Sign In </div></a>
-        </div>
-      </nav>
-    </div>
-  );
+  } else {
+    return (
+      <div>
+        <nav className="nav-container">
+          <div className="navbar-div-left"> 
+            <a href="../index.html" className="web-logo"><div className="nav-element"><img src="/assets/images/BRAND_LOGO.png" height="40" alt="logo"/></div></a>
+            <a href="../index.html" className="nav-interactable"><div className="nav-element"> Pricing </div></a>
+            <a href="../index.html" className="nav-interactable"><div className="nav-element"> About Us </div></a>
+          </div>
+          <div className="navbar-div-right">
+            <Link to="/login-registration" className="nav-interactable"><div className="nav-element"> Sign In </div></Link>
+          </div>
+        </nav>
+      </div>
+    );
+  }
+  
   
 }
 

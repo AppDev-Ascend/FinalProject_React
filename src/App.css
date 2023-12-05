@@ -1,14 +1,14 @@
 @font-face {
     font-family: LGCafe;
-    src: url(../media/fonts/louis_george_cafe.ttf) format("truetype");
+    src: url(../assets/fonts/louis_george_cafe.ttf) format("truetype");
 }
 @font-face {
     font-family: Signika;
-    src: url(../media/fonts/signika.ttf) format("truetype");
+    src: url(../assets/fonts/signika.ttf) format("truetype");
 }
 @font-face {
     font-family: Raleway;
-    src: url(../media/fonts/raleway.ttf) format("truetype");
+    src: url(../assets/fonts/raleway.ttf) format("truetype");
 }
 
 body {
@@ -101,7 +101,7 @@ nav .nav-interactable:hover {
 main .content-left {
     width: 65%;
     height: 92.3vh;      /* hardcoded value = evil, change it asap, fixable with js only */
-    background-image: url("../media/placeholder.png");
+    background-image: url("../assets/images/placeholder.png");
     background-repeat: no-repeat;
     background-size: cover;
     animation: fade 5s ease-in-out infinite;
@@ -112,11 +112,9 @@ main .content-right {
     align-items: center;
 }
 main .content-right .register-container {
-    display: none;
     padding: 60px;
 }
 main .content-right .login-container {
-    /*display: none;*/
     padding: 60px;
 }
 input.form-textbox {

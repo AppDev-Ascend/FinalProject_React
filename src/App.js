@@ -29,15 +29,15 @@ function App() {
 
   return (
     <Router>
-      <Header currentUser/>
-      <nav>
+      <Header currentUser={currentUser}/>
+      {/* <main>
         <Link to="/">Home</Link>
         <Link to="/login-registration">Login/Registration</Link>
         <Link to="/create-assessment">Create Assessment</Link>
         <Link to="/add-lesson">Add Lesson</Link>
         <Link to="/add-assessment-settings">Add Assessment Settings</Link>
         <Link to="/view-assessments">View Assessments</Link>
-      </nav>
+      </main> */}
       <div>
         <Routes>
           <Route path="/" exact element={<HomePage />} />
