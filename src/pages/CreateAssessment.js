@@ -17,6 +17,12 @@ const CreateAssessment = () => {
               </div>
             </div>
           </div>
+          <br/>
+        
+          {/* <div class="">
+            <h1> Create Examination </h1>
+            <p> Exams are a comprehensive assessment on multiple topics. Recommended for long form assessments. </p>
+          </div> */}
         </main>
         <TextEditor/>
     </div>
