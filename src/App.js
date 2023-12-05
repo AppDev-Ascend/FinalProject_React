@@ -9,8 +9,6 @@ import AddAssessmentSettingsPage from './pages/AddAssessmentSettingsPage';
 import LoginRegistrationPage from './pages/LoginRegistrationPage';
 import ViewAssessmentsPage from './pages/ViewAssessmentsPage';
 import Header from './components/Header';
-import './styles/styles.css';
-
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -31,6 +29,7 @@ function App() {
 
   return (
     <Router>
+      <Header currentUser/>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/login-registration">Login/Registration</Link>
@@ -42,7 +41,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" exact element={<HomePage />} />
-          <Route path="/login-registration" element={<LoginRegistrationPage />} />
+          <Route path="/login-registration" element={<LoginRegistrationPage currentUser/>} />
           <Route path="/create-assessment" element={<CreateAssessment />} />
           <Route path="/add-lesson" element={<AddLessonPage />} />
           <Route path="/add-assessment-settings" element={<AddAssessmentSettingsPage />} />
@@ -53,13 +52,4 @@ function App() {
   );
 }
 
-function NavigationButton() {
-  const navigate = useNavigate();
-
-  const navigateToCreateAssessment = () => {
-    navigate('/create-assessment');
-  };
-
-  return <button onClick={navigateToCreateAssessment}>Create New Assessment</button>;
-}
 export default App;
