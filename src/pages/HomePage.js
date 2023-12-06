@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-axios.defaults.withCredentials = true;
-
-const HomePage = () => {
+const HomePage = ({client}) => {
   const [currentUser, setCurrentUser] = useState();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [toggleLogin, setToggleLogin] = useState(true);
   const navigate = useNavigate();
-
-  const client = axios.create({
-    baseURL: 'http://localhost:8000/api',
-  });
   
   const toggleForm = () => {
     console.log('Before toggle:', toggleLogin);
@@ -87,7 +80,7 @@ const HomePage = () => {
             username: response.data.username,
           }));
   
-          navigate('/viewassessmentspage');
+          navigate('/dashboard');
         })
         .catch(function (error) {
           console.error('Error during login:', error);

@@ -1,8 +1,26 @@
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export function Header({ currentUser, setCurrentUser, client }) {
+axios.defaults.withCredentials = true;
+
+export function Header() {
+
+  const client = axios.create({
+    baseURL: 'http://localhost:8000/api',
+  });
+
+  const [currentUser, setCurrentUser] = useState(null);
+  
+  useEffect(() => {
+    // Check local storage on page load
+    const storedUser = localStorage.getItem('currentUser');
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const navigate = useNavigate();
 
@@ -12,8 +30,7 @@ export function Header({ currentUser, setCurrentUser, client }) {
 
     try {
       await client.post('/logout');
-      setCurrentUser(null);
-      navigate('/', currentUser={currentUser});
+      navigate('/');
     } catch (error) {
       console.error('Error during logout:', error);
     }
