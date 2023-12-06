@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 axios.defaults.withCredentials = true;
 
@@ -11,7 +11,7 @@ const LoginRegistrationPage = () => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [isLogin, setIsLogin] = useState(true);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const client = axios.create({
     baseURL: 'http://localhost:8000/api',
