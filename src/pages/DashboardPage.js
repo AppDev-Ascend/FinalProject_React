@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const ViewAssessmentsPage = () => {
+const DashBoardPage= () => {
   return (
     <main class="generic-content-container">
         <br/><br/><br/>
@@ -33,4 +33,4 @@ const ViewAssessmentsPage = () => {
   )
 }
 
-export default ViewAssessmentsPage
+export default DashBoardPage

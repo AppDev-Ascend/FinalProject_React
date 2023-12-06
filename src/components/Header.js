@@ -1,19 +1,36 @@
 import '../App.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export function Header({ currentUser }) {
+export function Header({ currentUser, setCurrentUser, client }) {
+
+  const navigate = useNavigate();
+
+  const SubmitLogout = async () => {
+
+    localStorage.removeItem('currentUser');
+
+    try {
+      await client.post('/logout');
+      setCurrentUser(null);
+      navigate('/', currentUser={currentUser});
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+
+  };
  
   if(currentUser) {
     return (
       <div>
         <nav className="nav-container">
           <div className="navbar-div-left"> 
-            <a href="../index.html" className="web-logo"><div className="nav-element"><img src="/assets/images/BRAND_LOGO.png" height="40" alt="logo"/></div></a>
+            <Link to="/" className="web-logo"><div className="nav-element"><img src="/assets/images/BRAND_LOGO.png" height="40" alt="logo"/></div></Link>
             <a href="../index.html" className="nav-interactable"><div className="nav-element"> Pricing </div></a>
             <a href="../index.html" className="nav-interactable"><div className="nav-element"> About Us </div></a>
           </div>
           <div className="navbar-div-right">
-            <a href="../index.html" className="nav-interactable"><div className="nav-element"> Sign Out </div></a>
+            <button onClick={SubmitLogout}>Logout</button>
           </div>
         </nav>
       </div>
@@ -23,12 +40,12 @@ export function Header({ currentUser }) {
       <div>
         <nav className="nav-container">
           <div className="navbar-div-left"> 
-            <a href="../index.html" className="web-logo"><div className="nav-element"><img src="/assets/images/BRAND_LOGO.png" height="40" alt="logo"/></div></a>
+            <Link to="/" className="web-logo"><div className="nav-element"><img src="/assets/images/BRAND_LOGO.png" height="40" alt="logo"/></div></Link>
             <a href="../index.html" className="nav-interactable"><div className="nav-element"> Pricing </div></a>
             <a href="../index.html" className="nav-interactable"><div className="nav-element"> About Us </div></a>
           </div>
           <div className="navbar-div-right">
-            <Link to="/login-registration" className="nav-interactable"><div className="nav-element"> Sign In </div></Link>
+            <Link to="/" className="nav-interactable"><div className="nav-element"> Sign In </div></Link>
           </div>
         </nav>
       </div>

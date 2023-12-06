@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 axios.defaults.withCredentials = true;
 
-const LoginRegistrationPage = () => {
+const HomePage = () => {
   const [currentUser, setCurrentUser] = useState();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [isLogin, setIsLogin] = useState(true);
-  // const navigate = useNavigate();
+  const [toggleLogin, setToggleLogin] = useState(true);
+  const navigate = useNavigate();
 
   const client = axios.create({
     baseURL: 'http://localhost:8000/api',
   });
   
   const toggleForm = () => {
-    console.log('Before toggle:', isLogin);
-    setIsLogin(!isLogin);
-    console.log('After toggle:', !isLogin);
+    console.log('Before toggle:', toggleLogin);
+    setToggleLogin(!toggleLogin);
+    console.log('After toggle:', !toggleLogin);
   };
 
   // Function to get the value of a cookie by name
@@ -45,90 +45,93 @@ const LoginRegistrationPage = () => {
 
   function submitRegistration(e) {
     e.preventDefault();
-
+  
     client.post(
-        '/register', 
-        {
-          email: email,
-          username: username,
-          password: password
+      '/register',
+      {
+        email: email,
+        username: username,
+        password: password
+      },
+      {
+        headers: {
+          'X-CSRFToken': csrfToken,
         },
-        {
-          headers: {
-            'X-CSRFToken': csrfToken
+      }
+    )
+      .then(function (response) {
+        client.post(
+          "/login",
+          {
+            email: email,
+            password: password
+          },
+          {
+            headers: {
+              'X-CSRFToken': csrfToken,
+            },
+            withCredentials: true,
           }
-        }
-      )
-    .then(response => {
-        console.log(response);
-    })
-    .catch(error => {
-        console.error(error);
-    });
-
-    // client.post(
-    //   '/register',
-    //   {
-    //     email: email,
-    //     username: username,
-    //     password: password
-    //   },
-    //   {
-    //     headers: {
-    //       'X-CSRFToken': csrfToken,
-    //     },
-    //   }
-    // )
-    //   .then(function (response) {
-    //     // Registration successful, proceed with login
-    //     client.post(
-    //       "/login",
-    //       {
-    //         email: email,
-    //         password: password
-    //       },
-    //       {
-    //         headers: {
-    //           'X-CSRFToken': csrfToken,
-    //         },
-    //       }
-    //     )
-    //       .then(function (response) {
-    //         // Login successful, update current user and navigate
-    //         setCurrentUser(true);
-    //         navigate('/viewassessmentspage');
-    //       })
-    //       .catch(function (error) {
-    //         console.error('Error during login:', error);
-    //       });
-    //   })
-    //   .catch(function (error) {
-    //     console.error('Error during registration:', error);
-    //   });
+        )
+        .then(function (response) {
+          const user = response.data;
+          console.log(user);  // Logs the user data
+          setCurrentUser({
+            user_id: response.data.user_id,
+            username: response.data.username,
+          });
+  
+          // Store user details in local storage
+          localStorage.setItem('currentUser', JSON.stringify({
+            user_id: response.data.user_id,
+            username: response.data.username,
+          }));
+  
+          navigate('/viewassessmentspage');
+        })
+        .catch(function (error) {
+          console.error('Error during login:', error);
+        });
+      })
+      .catch(function (error) {
+        console.error('Error during registration:', error);
+      });
   }
-
+  
   function submitLogin(e) {
     e.preventDefault();
     client.post(
-      '/login',
+      "/login",
       {
         email: email,
-        password: password,
-      }
-    ).then(function(response) {
-      setCurrentUser(true);
+        password: password
+      },
+      {
+        headers: {
+          'X-CSRFToken': csrfToken,
+        },
+        withCredentials: true,
+      })
+    .then(function (response) {
+      const user = response.data;
+      console.log(user);  // Logs the user data
+      setCurrentUser({
+        user_id: response.data.user_id,
+        username: response.data.username,
+      });
+  
+      // Store user details in local storage
+      localStorage.setItem('currentUser', JSON.stringify({
+        user_id: response.data.user_id,
+        username: response.data.username,
+      }));
+  
+      navigate('/dashboard');
+    })
+    .catch(function (error) {
+      console.error('Error during login:', error);
     });
   }
-
-  // function submitLogout(e) {
-  //   e.preventDefault();
-  //   client.post(
-  //     '/logout',
-  //     {withCredentials: true}
-  //   ).then(function(response) {
-  //     setCurrentUser(false);
-  //   });
-  // }
 
   return (
     <div>
@@ -137,17 +140,32 @@ const LoginRegistrationPage = () => {
         <div className="content-left">
         </div>
         <div className="content-right">
-          {isLogin ? (
+          {toggleLogin ? (
             <div className="login-container">
               <h1 align="center"> Sign In </h1>
               <p align="center"> Welcome back! Ready to make assessments with us? <br/> It's so good to have you back for more. </p>
               <br/>
 
               <form className="navbar-searchbar">
-                <label> Email/Username </label>
-                <input className="form-textbox" type="text" name="search" size="55"/> <br/><br/>
+                <label> Email </label>
+                <input 
+                  className="form-textbox" 
+                  type="text" 
+                  name="username" 
+                  size="55"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                /> 
+                <br/><br/>
                 <label> Password </label>
-                <input className="form-textbox" type="text" name="search" size="55"/>
+                <input 
+                  className="form-textbox" 
+                  type="password"
+                  name="password" 
+                  size="55"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                />
                 <br/><hr/>
                 <p align="center"> Don't have an account yet? <button onClick={toggleForm}>Sign up for free.</button> </p>
                 <button onClick={submitLogin} className="generic-button" type="submit"> Sign In </button>
@@ -179,4 +197,4 @@ const LoginRegistrationPage = () => {
   )
 }
 
-export default LoginRegistrationPage
+export default HomePage

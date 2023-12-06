@@ -1,13 +1,23 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CreateAssessment from './pages/CreateAssessment';
-import HomePage from './pages/HomePage';
 import AddLessonPage from './pages/AddLessonPage';
 import AddAssessmentSettingsPage from './pages/AddAssessmentSettingsPage';
-import LoginRegistrationPage from './pages/LoginRegistrationPage';
-import ViewAssessmentsPage from './pages/ViewAssessmentsPage';
+import HomePage from './pages/LoginRegistrationPage';
+import DashboardPage from './pages/DashboardPage';
 import Header from './components/Header';
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    // Check local storage on page load
+    const storedUser = localStorage.getItem('currentUser');
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <Router>
@@ -22,12 +32,12 @@ function App() {
       </main> */}
       <div>
         <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="/login-registration" element={<LoginRegistrationPage currentUser/>} />
+          {/* <Route path="/" exact element={<HomePage />} /> */}
+          <Route path="/" element={<HomePage currentUser={currentUser}/>} />
           <Route path="/create-assessment" element={<CreateAssessment />} />
           <Route path="/add-lesson" element={<AddLessonPage />} />
           <Route path="/add-assessment-settings" element={<AddAssessmentSettingsPage />} />
-          <Route path="/view-assessments" element={<ViewAssessmentsPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </div>
     </Router>
