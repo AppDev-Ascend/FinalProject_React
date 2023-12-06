@@ -1,8 +1,8 @@
 import React from 'react'
 import TextEditor from '../components/TextEditor'
+import FileUpload from '../components/FileUpload'
 
 const CreateAssessment = () => {
-
 
   return (
     <div>
@@ -17,14 +17,11 @@ const CreateAssessment = () => {
               </div>
             </div>
           </div>
+          <TextEditor/>
+          <FileUpload />
           <br/>
-        
-          {/* <div class="">
-            <h1> Create Examination </h1>
-            <p> Exams are a comprehensive assessment on multiple topics. Recommended for long form assessments. </p>
-          </div> */}
         </main>
-        <TextEditor/>
+        
     </div>
   )
 }

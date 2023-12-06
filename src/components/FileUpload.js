@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const UploadPDF = () => {
+const FileUpload = () => {
 
     const [file, setFile] = useState(null)
 
@@ -15,7 +15,7 @@ const UploadPDF = () => {
         formData.append('file', file);
       
         try {
-          const response = await axios.post('http://localhost/upload/', formData, {
+          const response = await axios.post('http://localhost:300/api/upload/', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
@@ -35,4 +35,4 @@ const UploadPDF = () => {
     );
 }
 
-export default UploadPDF
+export default FileUpload
