@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CreateAssessment from './pages/CreateAssessment';
 import HomePage from './pages/HomePage';
 import AddLessonPage from './pages/AddLessonPage';
@@ -7,7 +6,6 @@ import AddAssessmentSettingsPage from './pages/AddAssessmentSettingsPage';
 import LoginRegistrationPage from './pages/LoginRegistrationPage';
 import ViewAssessmentsPage from './pages/ViewAssessmentsPage';
 import Header from './components/Header';
-
 
 function App() {
 
