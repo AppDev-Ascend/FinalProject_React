@@ -7,64 +7,87 @@
     <meta name="author" content="Ascend">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Register | Assessify </title>
-    <link rel="icon" href="media/hj_favicon.png">
-    <link rel="stylesheet" href="../css/style-main.css">
-    <script src="scripts/script.js"></script>
+    <link rel="icon" href="../media/favicon.png">
+    <link rel="stylesheet" href="../css/style-global.css">
+    <link rel="stylesheet" href="../css/style-register-login.css">
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/slideshow-player.js"></script>
   </head>
   <body>
-    <nav class="nav-container">
-        <div class="navbar-div-left"> 
-          <a href="../index.html" class="web-logo"><div class="nav-element"><img src="../media/BRAND_LOGO.png" height="40" alt="logo"></div></a>
-          <a href="../index.html" class="nav-interactable"><div class="nav-element"> Pricing </div></a>
-          <a href="../index.html" class="nav-interactable"><div class="nav-element"> About Us </div></a>
-        </div>
-        <div class="navbar-div-right">
-          <a href="../index.html" class="nav-interactable"><div class="nav-element"> Sign In </div></a>
-        </div>
-      </nav>
-    <main class="content-container">
-        <div class="content-left">
-            <!-- Simply a container for images -->
-        </div>
-        <div class="content-right">
-          <div class="register-container">
-              <h1 align="center"> Sign Up </h1>
-              <p align="center"> Creating an account is very simple!<br>Start working with us now! </p>
 
-              <!-- I don't approve of using <br> for page spacing as it breaks style consistency and is subjective to the browser and device.-->
-              <!-- It is simply to accomodate for time constraints so that I wouldn't bash my head fixing for 2 days instead of making the stylesheet.-->
-              <form class="navbar-searchbar">
+    <!-- Navigation bar, can be turned into one component. -->
+    <nav class="nav-container">
+      <div class="navbar-div-left"> 
+        <a href="../index.html" class="web-logo"><div class="nav-element"><img src="../media/BRAND_LOGO.png" height="40" alt="logo"></div></a>
+        <a href="../index.html" class="nav-interactable"><div class="nav-element"> Pricing </div></a>
+        <a href="../index.html" class="nav-interactable"><div class="nav-element"> About Us </div></a>
+      </div>
+      <div class="navbar-div-right">
+        <a href="javascript:void(0);" onclick="rl_showLogin()" class="nav-interactable"><div class="nav-element"> Sign In </div></a>
+      </div>
+    </nav>
+
+    <!-- The content box component. Contains the whole content of the page excluding the navigation bar and the footer, if there are any. -->
+    <main class="generic-content-container">
+
+        <!-- This the left div that contains the small image slideshow. -->
+        <div class="content-slideshow-container">
+            <div class="slideshow-image"><img src="../media/slideshow-assets/image1.png"/></div>
+            <div class="slideshow-image"><img src="../media/slideshow-assets/image2.png"/></div>
+            <div class="slideshow-image"><img src="../media/slideshow-assets/image3.png"/></div>
+        </div>
+
+        <!-- This is the right div that contains both the login and register form that can be toggled via a Javascript file. -->
+        <div class="content-form-container">
+          <div id="register-container">
+              <div class="container-header">
+                <h1> Sign Up </h1>
+                <p> Creating an account is very simple! Start using our services now! </p>
+              </div>
+
+              <form class="container-form">
                 <label> Email </label>
-                <input class="form-textbox" type="text" placeholder="johndoe123@domain.com" name="search" size="55"> <br><br>
+                <input class="generic-form-textbox" type="text" placeholder="johndoe123@domain.com" name="email">
                 <label> Username </label>
-                <input class="form-textbox" type="text" placeholder="John Doe" name="search" size="55"> <br><br>
+                <input class="generic-form-textbox" type="text" placeholder="John Doe" name="username">
                 <label> Password </label>
-                <input class="form-textbox" type="text" placeholder="Enter your password." name="search" size="55"> <br><br><br><br>
+                <input class="generic-form-textbox" type="password" placeholder="Enter your password." name="password"> <br><br>
                 <label> Re-enter Password </label>
-                <input class="form-textbox" type="text" placeholder="Re-enter password to confirm password." name="search" size="55">
+                <input class="generic-form-textbox" type="password" placeholder="Re-enter password to confirm password." name="repassword">
+                <hr><br>
+                <button class="generic-button" type="submit"> Sign Up Now! </button>
               </form>
 
-              <br><hr>
-              <p align="center"> By signing up to our services, you agree to our Terms of Service and Privacy Policy. </p>
-              <button class="generic-button" type="submit"> Sign Up Now! </button>
+              <div class="container-footer">
+                <p align="center"> 
+                  Already have an account? <a href="javascript:void(0);" onclick="rl_swapContentBox()"><b><u>Sign in to get started.</u></b></a> <br>
+                  By signing up, you agree to our <u>Terms of Service</u> and <u>Privacy Policy</u>. 
+                </p>
+              </div>
           </div>
-          <div class="login-container">
-            <h1 align="center"> Sign In </h1>
-            <p align="center"> Welcome back! Ready to make assessments with us? <br> It's so good to have you back for more. </p>
-            <br>
 
-            <form class="navbar-searchbar">
+          <div id="login-container">
+            <div class="container-header">
+              <h1> Sign In </h1>
+              <p> Welcome back! Ready to make assessments with us? <br> It's so good to have you back for more. </p>
+            </div>
+
+            <br><br><br>
+            <form class="container-form">
               <label> Email/Username </label>
-              <input class="form-textbox" type="text" name="search" size="55"> <br><br>
+              <input class="generic-form-textbox" type="text" name="username">
               <label> Password </label>
-              <input class="form-textbox" type="text" name="search" size="55">
+              <input class="generic-form-textbox" type="password" name="password">
+              <br><br><br><hr><br>
+              <button class="generic-button" type="submit"> Sign In </button>
             </form>
 
-            <br><hr>
-            <p align="center"> Don't have an account yet? <a href="www.youtube.com">Sign up for free.</a> </p>
-            <button class="generic-button" type="submit"> Sign In </button>
+            <div class="container-footer">
+              <p align="center"> Don't have an account yet? <a href="javascript:void(0);" onclick="rl_swapContentBox()"><b><u>Sign up for free.</u></b></a> </p>
+            </div>
           </div>
         </div>
+
     </main>
   </body>
 </html>
