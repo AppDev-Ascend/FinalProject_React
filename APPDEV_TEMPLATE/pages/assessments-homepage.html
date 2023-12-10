@@ -14,8 +14,6 @@
     <script src="../scripts/creation_prompt.js"></script>
   </head>
   <body>
-
-    <!-- Navigation bar with a different style this time. Assume that the user has logged in, whenever that is triggered, use this as a component. -->
     <nav class="nav-container">
       <div class="navbar-div-left"> 
         <a href="../index.html" class="web-logo"><div class="nav-element"><img src="../media/BRAND_LOGO.png" height="40" alt="logo"></div></a>
@@ -23,8 +21,13 @@
         <a href="../index.html" class="nav-interactable"><div class="nav-element"> About Us </div></a>
       </div>
       <div class="navbar-div-right">
-        <a href="../index.html" class="nav-interactable"><div class="nav-element"> Sign In </div></a>
+        <!-- You can kinda tell one's fucked and desperate when they start using things they don't do such as... inline CSS... -->
+        <div class="tier"> BASIC </div>
+        <img src="../media/notifications.png" height="50" width="50" class="nav-element" style="padding-left: 10px; padding-right: 10px;"/>
+        <img src="../media/profile_picture.png" height="50" width="55" class="nav-element" style="padding-left: 10px; padding-right: 10px;"/>
+        <a href="register-login.html" class="nav-interactable"><div class="nav-element"> Log Out </div></a>
       </div>
+      </nav>
     </nav>
 
     <main class="generic-content-container">
@@ -61,18 +64,20 @@
           </div>
         </div>
 
-        <div class="assessment-box">
-          <div class="assessment-title">
-            <h2> Sample Assessment 1 </h2>
+        <a href="assessment_viewer.html?id=12">
+          <div class="assessment-box">
+            <div class="assessment-title">
+              <h2> Sample Assessment 1 </h2>
+            </div>
+            <div class="assessment-info">
+              <b> Quiz Type </b> | <b> 10 Items </b> | <b> 1 Part(s) </b>
+              Created on <b> December 08, 2023 </b>
+            </div>
+            <div class="assessment-description">
+              Educational assessment or educational evaluation is the systematic process of documenting and using empirical data on the knowledge, skill, attitudes, aptitude and beliefs to refine programs and improve student learning.
+            </div>
           </div>
-          <div class="assessment-info">
-            <b> Quiz Type </b> | <b> 10 Items </b> | <b> 1 Part(s) </b>
-            Created on <b> December 08, 2023 </b>
-          </div>
-          <div class="assessment-description">
-            Educational assessment or educational evaluation is the systematic process of documenting and using empirical data on the knowledge, skill, attitudes, aptitude and beliefs to refine programs and improve student learning.
-          </div>
-        </div>
+        </a>
 
         <!-- Static component for assessment creation box, should've been an ID instead of a class. -->
         <a href="javascript:void(0);" onclick="showPrompt()">

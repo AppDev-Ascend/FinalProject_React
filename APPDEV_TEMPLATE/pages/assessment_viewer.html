@@ -7,10 +7,27 @@
     <meta name="author" content="Ascend">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Sample Quiz Assessment 1 | Assessify </title>
-    <link rel="icon" href="media/hj_favicon.png">
-    <link rel="stylesheet" href="../css/style-main.css">
+    <link rel="icon" href="../media/favicon.png">
+    <link rel="stylesheet" href="../css/style-global.css">
+    <link rel="stylesheet" href="../css/style-view-assessments.css">
     <script src="scripts/script.js"></script>
   </head>
+  <!-- 
+    Frontend devs can't do much here but provide templates for displaying data. Backend peeps it's your time to shine here.
+    I'll be doing my best to describe what I want you to do.
+
+    In the assessments-homepage page, each assessment box should be uniquely tied to an ID.
+    For example, if we have an assessment instance with ID 12455 in the database. This ID should be retrieved and appended to the <a> tag of that box.
+    So now we have the link: "assessment_viewer?id=12455", using a scripting language such as PHP, Python, or Javascript, we can extract the value of the ID.
+    
+    We're going to do it that way to pass that ID as parameter to this page so that what needs to be done here is simply getting the data and automatically display them here based on that ID alone, no more multple pages.
+    Simply using that ID alone can provide us much data to populate this page.
+
+    CONTINGENCY PLAN:
+    If ever this is difficult to do or that time is simply not dispensable anymore, PDF view is a valid form of assessment viewer too.
+    The moment the user clicks the "Create Assessment" button in create_assessment.html, immediately create a PDF file of the questions.
+    As for how assessments-homepage.html would be used is another problem of its own.
+  -->
   <body>
     <nav class="nav-container">
       <div class="navbar-div-left"> 
@@ -19,15 +36,190 @@
         <a href="../index.html" class="nav-interactable"><div class="nav-element"> About Us </div></a>
       </div>
       <div class="navbar-div-right">
-        <a href="../index.html" class="nav-interactable"><div class="nav-element"> Sign In </div></a>
+        <!-- You can kinda tell one's fucked and desperate when they start using things they don't do such as... inline CSS... -->
+        <div class="tier"> BASIC </div>
+        <img src="../media/notifications.png" height="50" width="50" class="nav-element" style="padding-left: 10px; padding-right: 10px;"/>
+        <img src="../media/profile_picture.png" height="50" width="55" class="nav-element" style="padding-left: 10px; padding-right: 10px;"/>
+        <a href="register-login.html" class="nav-interactable"><div class="nav-element"> Log Out </div></a>
       </div>
       </nav>
+    </nav>
   </body>
   <main class="generic-content-container">
-    <br>
-    <div class="">
-      <h1> Sample Quiz Assessment 1 </h1>
-      <p> This is a sample quiz assessment with a sample description. Feel free to add descriptions to your assessments to help you keep track of things. </p>
+    <h1> Sample Quiz Assessment 1 </h1>
+    <p> Educational assessment or educational evaluation is the systematic process of documenting and using empirical data on the knowledge, skill, attitudes, aptitude and beliefs to refine programs and improve student learning. </p>
+    <div class="content-grid">
+      <!-- Using a script, populate this section with content according to their question types. -->
+      <!-- For ease, use the ID of the assessment and retrieve those questions associated with that ID. -->
+      <!-- This is how it looks in HTML code. -->
+
+      <!--
+        TEMPLATES TO USE:
+        - APPEND THEM WITHIN THE "assessment-container" div class.
+
+        - Generally used for both True or False questions and Multiple Choice questions:
+        - Represents a div showing an assessment section with 1 item containing 4 choices.
+        <div class="assessment-section">
+          <h2> Section ${section_number} </h2>
+          <ol class="choiced-items" type="1">
+            <li class="item"> ${question} <br/> <b> Answer: ${answer} </b>
+              <ol class="options" type="A">
+                <li> ${choice} </li>
+                <li> ${choice} </li>
+                <li> ${choice} </li>
+                <li> ${choice} </li>
+              </ol>
+            </li
+          <ol>
+        </div>
+
+        - Used for questions with no options at all:
+        - Represents a div showing an assessment section with 3 items without choices.
+          <div class="assessment-section">
+            <h2> Section ${section_number} </h2>
+            <ol class="choiced-items" type="1">
+            <ol class="non-choiced-item" type="1">
+              <li class="item"> ${question} <br/> <b> Answer: ${answer} </b></li>
+              <li class="item"> ${question} <br/> <b> Answer: ${answer} </b></li>
+              <li class="item"> ${question} <br/> <b> Answer: ${answer} </b></li>
+            </ol>
+          </div>
+      -->
+
+      <div class="assessment-container">
+        <div class="assessment-section">
+          <h2> Section 1 </h2>
+          <ol class="choiced-items" type="1">
+
+            <li class="item"> Which design pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable? <br/> <b> Answer: B </b>
+              <ol class="options" type="A">
+                <li> Observer Pattern </li>
+                <li> Strategy Pattern </li>
+                <li> Singleton Pattern </li>
+                <li> Decorator Pattern </li>
+              </ol>
+            </li>
+
+            <li class="item"> Which design pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable? <br/> <b> Answer: B </b>
+              <ol class="options" type="A">
+                <li> Observer Pattern </li>
+                <li> Strategy Pattern </li>
+                <li> Singleton Pattern </li>
+                <li> Decorator Pattern </li>
+              </ol>
+            </li>
+
+            <li class="item"> Which design pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable? <br/> <b> Answer: B </b>
+              <ol class="options" type="A">
+                <li> Observer Pattern </li>
+                <li> Strategy Pattern </li>
+                <li> Singleton Pattern </li>
+                <li> Decorator Pattern </li>
+              </ol>
+            </li>
+
+            <li class="item"> Which design pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable? <br/> <b> Answer: B </b>
+              <ol class="options" type="A">
+                <li> Observer Pattern </li>
+                <li> Strategy Pattern </li>
+                <li> Singleton Pattern </li>
+                <li> Decorator Pattern </li>
+              </ol>
+            </li>
+
+            <li class="item"> Which design pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable? <br/> <b> Answer: B </b>
+              <ol class="options" type="A">
+                <li> Observer Pattern </li>
+                <li> Strategy Pattern </li>
+                <li> Singleton Pattern </li>
+                <li> Decorator Pattern </li>
+              </ol>
+            </li>
+          
+            </ol>
+        </div>
+
+        <div class="assessment-section">
+          <h2> Section 2 </h2>
+          <ol class="choiced-item" type="1">
+
+            <li class="item"> The Observer pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable. <br/> <b> Answer: False </b>
+              <ul class="options">
+                <li> True </li>
+                <li> False </li>
+              </ul>
+            </li>
+
+            <li class="item"> The Observer pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable. <br/> <b> Answer: False </b>
+              <ul class="options">
+                <li> True </li>
+                <li> False </li>
+              </ul>
+            </li>
+
+            <li class="item"> The Observer pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable. <br/> <b> Answer: False </b>
+              <ul class="options">
+                <li> True </li>
+                <li> False </li>
+              </ul>
+            </li>
+
+            <li class="item"> The Observer pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable. <br/> <b> Answer: False </b>
+              <ul class="options">
+                <li> True </li>
+                <li> False </li>
+              </ul>
+            </li>
+
+            <li class="item"> The Observer pattern is used to define a family of algorithms, encapsulate each algorithm, and make them interchangeable. <br/> <b> Answer: False </b>
+              <ul class="options">
+                <li> True </li>
+                <li> False </li>
+              </ul>
+            </li>
+
+          </ol>
+        </div>
+
+        <div class="assessment-section">
+          <h2> Section 3 </h2>
+          <ol class="non-choiced-item" type="1">
+
+            <li class="item"> The _______ pattern is used to ensure a class has only one instance and provides a global point of access to it. <br/> <b>Answer: Singleton </b></li>
+            <li class="item"> The _______ pattern is used to ensure a class has only one instance and provides a global point of access to it. <br/> <b>Answer: Singleton </b></li>
+            <li class="item"> The _______ pattern is used to ensure a class has only one instance and provides a global point of access to it. <br/> <b>Answer: Singleton </b></li>
+            <li class="item"> The _______ pattern is used to ensure a class has only one instance and provides a global point of access to it. <br/> <b>Answer: Singleton </b></li>
+            <li class="item"> The _______ pattern is used to ensure a class has only one instance and provides a global point of access to it. <br/> <b>Answer: Singleton </b></li>
+
+          </ol>
+        </div>
+
+        <div class="assessment-section">
+          <h2> Section 4 </h2>
+          <ol class="non-choiced-item" type="1">
+
+            <li class="item"> This pattern is used to add new functionalities to an object dynamically by keeping the same interface. <br/> <b> Answer: Decorator </b></li>
+            <li class="item"> This pattern is used to add new functionalities to an object dynamically by keeping the same interface. <br/> <b> Answer: Decorator </b></li>
+            <li class="item"> This pattern is used to add new functionalities to an object dynamically by keeping the same interface. <br/> <b> Answer: Decorator </b></li>
+            <li class="item"> This pattern is used to add new functionalities to an object dynamically by keeping the same interface. <br/> <b> Answer: Decorator </b></li>
+            <li class="item"> This pattern is used to add new functionalities to an object dynamically by keeping the same interface. <br/> <b> Answer: Decorator </b></li>
+
+          </ol>
+        </div>
+
+        <div class="assessment-section">
+          <h2> Section 5 </h2>
+          <ol class="non-choiced-item" type="1">
+
+            <li class="item"> Discuss the role of design patterns in promoting code reusability and how this contributes to more efficient software development practices. Provide examples of design patterns that exemplify this concept. </li>
+            <li class="item"> Discuss the role of design patterns in promoting code reusability and how this contributes to more efficient software development practices. Provide examples of design patterns that exemplify this concept. </li>
+            <li class="item"> Discuss the role of design patterns in promoting code reusability and how this contributes to more efficient software development practices. Provide examples of design patterns that exemplify this concept. </li>
+            <li class="item"> Discuss the role of design patterns in promoting code reusability and how this contributes to more efficient software development practices. Provide examples of design patterns that exemplify this concept. </li>
+            <li class="item"> Discuss the role of design patterns in promoting code reusability and how this contributes to more efficient software development practices. Provide examples of design patterns that exemplify this concept. </li>
+
+          </ol>
+        </div>
+      </div>
     </div>
   </main>
 </html>

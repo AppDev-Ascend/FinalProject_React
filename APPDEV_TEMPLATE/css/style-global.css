@@ -22,6 +22,11 @@ a:link, a:visited {
     text-decoration: none;
     color: black;
 }
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
 .nav-container {
     top: 0;
@@ -72,6 +77,11 @@ nav .nav-interactable:hover {
 .generic-content-container {
     margin-top: 58px;
 }
+.generic-content-container h1 {
+    font-size: 64px;
+    line-height: 10px;
+    font-weight: bolder;
+}
 .generic-form-textbox {
     width: 100%;
     margin-bottom: 10px;
@@ -105,113 +115,58 @@ nav .nav-interactable:hover {
     background-color: rgb(3, 240, 23);
 }
 
-.content-container h1 {
-    font-size: 64px;
-    line-height: 10px;
-    margin-top: 0px;
-    font-weight: bolder;
-}
-.content-container h3 {
-    line-height: 0px;
-}
-main .content-left {
-    width: 65%;
-    height: 92.3vh;      /* hardcoded value = evil, change it asap, fixable with js only */
-    background-image: url("../media/placeholder.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: fade 5s ease-in-out infinite;
-}
-main .content-right {
-    width: 35%;
-    display: flex;
-    align-items: center;
-}
-main .content-right .register-container {
+.prompt-container {
+    width: 600px;
+    max-width: 600px;
     display: none;
-    padding: 60px;
-}
-main .content-right .login-container {
-    /*display: none;*/
-    padding: 60px;
-}
-input.form-textbox {
-    padding: 9px;
-    border: 1px gray solid;
-    border-radius: 10px;
-}
-input.form-textbox:focus {
-    outline: none;
-    border: 2px solid green;
-}
-label {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.generifc-content-container {
-    padding: 0px 125px 0px 125px;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-family: 'Raleway';
+    z-index: 1000;
 }
-.generic-content-container h1 {
-    font-size: 64px;
-    line-height: 10px;
+.prompt-container h1 {
+    font-size: 38px;
     font-weight: bolder;
+    margin: 0px;
 }
-
-
-
-.assessment-creator-container {
+.prompt-container p {
+    text-align: center;
+}
+.prompt-container .options-container {
     width: 100%;
-    display: grid;
-    box-sizing: border-box;
-    grid-column-gap: 50px;
-    grid-template-columns: 0.65fr 0.35fr;
-}
-.assessment-attributes-form {
-    width: 100%;
-    height: 100%;;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
 }
-.assessment-generator-form {
-    box-sizing: border-box;
-}
-
-.generic-textbox {
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-}
-.generic-textarea-variant1 {
-    width: 100%;
-    padding: 5px;
-    resize: none;
-    box-sizing: border-box;
-}
-.generic-textarea-variant2 {
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgb(230, 230, 230);
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI';
-    resize: none;
-    box-sizing: border-box;
-}
-.generic-textarea-variant1:focus {
-    outline: none;
-}
-.generic-textarea-variant2:focus {
-    outline: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
 
-@keyframes fade {
-    0%, 100% {
-      opacity: 0;
-    }
-    25%, 75% {
-      opacity: 1;
-    }
+.tier {
+    margin: 0px 20px 0px 20px;
+    padding: 5px 25px 5px 25px;
+    border: 1px solid purple;
+    border-radius: 20px;
+    background-color: purple;
+    color: white;
+    font-weight: bolder;
 }

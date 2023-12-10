@@ -123,42 +123,6 @@
     overflow: hidden;
 }
 
-/* Prompt styff */
-.prompt-container {
-    width: 600px;
-    max-width: 600px;
-    display: none;
-    position: fixed;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    font-family: 'Raleway';
-    z-index: 1000;
-}
-.prompt-container h1 {
-    font-size: 38px;
-    font-weight: bolder;
-    margin: 0px;
-}
-.prompt-container p {
-    text-align: center;
-}
-.prompt-container .options-container {
-    width: 100%;
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
 .options-container .option-box {
     display: flex;
     flex-direction: column;
@@ -179,17 +143,6 @@
 
 .options-container .option-box h2 {
     margin: 0;
-}
-
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
 }
 
 .bruh {
